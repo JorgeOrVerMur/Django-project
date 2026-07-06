@@ -4,9 +4,19 @@
 <div class="task">
     <h2>{{ task.title }}</h2>
     <p>{{ task.description }}</p>
-    <p>{{ task.done }}</p>
+    <!-- <p>{{ task.done }}</p> -->
+    {%if task.done == True%}
+    <p style="color: green;">Tarea realizada ✅</p>
+    {%else%}
+    <p style="color: red;">Tarea pendiente ❌</p>
+    {%endif%}
+
     <p>{{ task.id }}</p>
     <p>Proyecto: {{task.project.name}}</p>
+    <button type="button">Delete</button>
+    <button type="button">Update</button>
+    <button type="button">Check ✔</button>
+    <button type="button">unCheck ❌</button>
 </div>
 {% endfor %}
 

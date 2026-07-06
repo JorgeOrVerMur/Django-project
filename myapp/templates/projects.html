@@ -6,3 +6,17 @@
     <li>{{ project.name }}</li>
     {% endfor %}
 </ul>
+
+<hr>
+
+
+{% for project in projects %}
+<article>
+    <h2>{{ project.name }}</h2>
+    <p>{{ project.description }}</p>
+    <p>{{ project.id }}</p>
+    <p>{{ project.url }}</p>
+    <button type="button">Delete</button>
+    <button type="button">Update</button>
+</article>
+{% endfor %}
