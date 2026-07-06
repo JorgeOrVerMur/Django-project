@@ -1,1 +1,18 @@
 <h1>Taks</h1>
+
+{% for task in tasks %}
+<div class="task">
+    <h2>{{ task.title }}</h2>
+    <p>{{ task.description }}</p>
+    <p>{{ task.done }}</p>
+    <p>{{ task.id }}</p>
+    <p>Proyecto: {{task.project.name}}</p>
+</div>
+{% endfor %}
+
+<hr />
+<ul>
+    {% for task in tasks %}
+    <li>{{ task.title }} - {{ task.id }} - {{ task.description }} - {{ task.done }} - {{ task.project.name }}</li>
+    {% endfor %}
+</ul>

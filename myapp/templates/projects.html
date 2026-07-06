@@ -1,1 +1,8 @@
 <h1>Projects</h1>
+
+<!-- <p>{{projects}}</p> -->
+<ul>
+    {% for project in projects %}
+    <li>{{ project.name }}</li>
+    {% endfor %}
+</ul>
