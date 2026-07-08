@@ -1,3 +1,8 @@
+{% extends 'layouts/base.html' %}
+
+
+{%block content%}
+
 <h1>Taks</h1>
 
 {% for task in tasks %}
@@ -5,6 +10,7 @@
     <h2>{{ task.title }}</h2>
     <p>{{ task.description }}</p>
     <!-- <p>{{ task.done }}</p> -->
+    {#TO DO: esta es una tarea, comentario en el servidor#}
     {%if task.done == True%}
     <p style="color: green;">Tarea realizada ✅</p>
     {%else%}
@@ -26,3 +32,5 @@
     <li>{{ task.title }} - {{ task.id }} - {{ task.description }} - {{ task.done }} - {{ task.project.name }}</li>
     {% endfor %}
 </ul>
+
+{%endblock%}

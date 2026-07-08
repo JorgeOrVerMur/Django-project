@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 def index(request):
     #return HttpResponse("<h2>Index Page</h2>")
-    title = "Welcome to Django"
+    title = "Welcome to Django from Views.py"
     return render(request, "index.html", {"titulo": title})
 
 def about(request):
