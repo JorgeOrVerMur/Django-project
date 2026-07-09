@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{%block content%}
+
+<h1>Create a new project</h1>
+<form method="POST">
+    {% csrf_token %}
+    <!-- TOKEN DE SEGURIDAD DE DJANGO, ES OBLIGATORIO EN TODOS LOS FORMULARIOS  -->
+    <!-- {{formulario.as_p}} el AS_P es para que cada campo se transforme en un parrafo-->
+    {{formularioP.as_p}}
+    <button type="submit">Create Project</button>
+</form>
+
+{%endblock%}
