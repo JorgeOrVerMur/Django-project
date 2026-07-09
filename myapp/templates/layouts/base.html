@@ -1,15 +1,18 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Django projects</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 </head>
 
 <body>
 
-    <nav>
+    <nav class="navbar ">
         <ul>
             <!-- <li><a href="/myapp">Home</a></li> -->
             <li><a href="{% url 'index' %}">Home</a></li>
@@ -26,8 +29,11 @@
         </ul>
     </nav>
 
-    {%block content%}
-    {%endblock%}
+    <main class="container">
+        {%block content%}
+        {%endblock%}
+    </main>
+    <h3>TUTORIAL SACADO DE https://www.youtube.com/watch?v=T1intZyhXDU</h3>
 </body>
 
 </html>

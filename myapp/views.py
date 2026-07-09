@@ -1,10 +1,10 @@
 # pyrefly: ignore [missing-import]
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 # pyrefly: ignore [missing-import]
 from django.http import HttpResponse, JsonResponse
+# pyrefly: ignore [missing-import]
 from .models import Project, Task
 # pyrefly: ignore [missing-import]
-from django.shortcuts import get_object_or_404, redirect
 from .form import CreateNewTask, CreateNewProject
 
 # Create your views here.
@@ -53,7 +53,8 @@ def create_task(request):
     else:
         done_value = 'done' in request.POST
         Task.objects.create(title=request.POST["title"], description=request.POST["description"], done=done_value, project = Project.objects.first())
-        #return redirect("/myapp/tasks") #esto es lo mismo que la siguiente linea, pero usando el nombre de la ruta, se recomienda usar el nombre de la ruta
+        #return redirect("/myapp/tasks") 
+        # esto es lo mismo que la siguiente linea, pero usando el nombre de la ruta, se recomienda usar el nombre de la ruta
         return redirect("tasks_lista")
 
 def create_project(request):
@@ -67,3 +68,9 @@ def create_project(request):
         print(project)
         #return redirect("/myapp/projects")
         return redirect("projects_lista")
+
+def project_detail(request, id):    
+    # project = Project.objects.get(id=id) #esto da error si no existe el proyecto, por eso es mejor usar get_object_or_404
+    project = get_object_or_404(Project, id=id)
+    tasks = Task.objects.filter(project=project)
+    return render(request, "projects/detail.html", {"project": project, "tasks": tasks})
